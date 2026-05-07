@@ -1,14 +1,19 @@
-import styles from "./page.module.css";
+import type { Metadata } from "next";
+import Link from "next/link";
+import {
+  hero,
+  homeHighlights,
+  homeTagline,
+  person,
+  socialLinks,
+} from "@/app/lib/content";
+import styles from "@/app/site.module.css";
 
-const talks = [
-  {
-    href: "https://www.youtube.com/live/kynP5XTRWls",
-    title: "Framer Motion Deep Dive",
-    meta: "Video · 1h 48m",
-    description:
-      "An in-depth technical session covering Framer Motion's animation model, performance considerations, and real-world implementation patterns.",
+export const metadata: Metadata = {
+  title: {
+    absolute: "Gurjit Singh — Frontend engineer & technical writer",
   },
-];
+};
 
 const writing = [
   {
@@ -49,82 +54,50 @@ const books: {
 export default function Home() {
   return (
     <main className={styles.wrap}>
-      <header className={styles.header}>
-        <p className={styles.eyebrow}>Gurjit Singh</p>
-        <h1 className={styles.title}>
-          Frontend engineer &amp; technical writer
-        </h1>
-        <p className={styles.subtitle}>
-          Scalable, performant interfaces with React &amp; TypeScript — talks,
-          articles, book reviews, and long-running open source.
-        </p>
+      <header className={`${styles.header} ${styles.headerHome}`}>
+        <p className={styles.eyebrow}>{hero.eyebrow}</p>
+        <h1 className={styles.title}>{hero.title}</h1>
+        <p className={styles.subtitle}>{hero.subtitle}</p>
       </header>
 
-      <section className={styles.section} aria-labelledby="intro-heading">
-        <h2 id="intro-heading" className="sr-only">
-          Introduction
-        </h2>
-        <p className={styles.greeting}>Hey — thanks for stopping by.</p>
+      <section className={styles.section} aria-labelledby="highlights-heading">
+        <p id="highlights-heading" className={styles.greeting}>
+          Hey — thanks for stopping by.
+        </p>
+        <p className={styles.lead}>{homeTagline}</p>
         <p className={styles.lead}>
-          I&apos;m <strong>Gurjit Singh</strong>, a frontend-heavy full-stack
-          engineer at{" "}
-          <a href="https://www.storyblok.com" rel="noopener noreferrer">
-            Storyblok
-          </a>{" "}
-          in Berlin. I care about real-time, performant systems, clear technical
-          writing, and sharing what I learn in depth — from Lighthouse scores to
-          animation APIs.
-        </p>
-        <p className={styles.tldr}>
-          <strong>TL;DR:</strong> I build production UIs, give long-form
-          technical sessions (e.g. Framer Motion), write on performance and the
-          web platform, review engineering books, and lead development on{" "}
-          <a href="https://sttm.co" rel="noopener noreferrer">
-            STTM
+          I&apos;m <strong>{person.name}</strong>, based in {person.location},{" "}
+          working at{" "}
+          <a href={person.employer.href} rel="noopener noreferrer">
+            {person.employer.name}
           </a>
-          , a volunteer-run Gurbani streaming platform.
+          . The detail lives on{" "}
+          <Link href="/work">Work</Link> and <Link href="/about">About</Link>.
         </p>
+
+        <h2 className={styles.sectionTitle}>Highlights</h2>
+        <ul className={styles.highlights}>
+          {homeHighlights.map((item) => (
+            <li key={item.href} className={styles.highlightItem}>
+              <Link href={item.href} className={styles.highlightLink}>
+                {item.title}
+              </Link>
+              <span className={styles.highlightMeta}>{item.meta}</span>
+            </li>
+          ))}
+        </ul>
       </section>
 
       <section className={styles.section} aria-labelledby="connect-heading">
         <h2 id="connect-heading" className={styles.sectionTitle}>
           Connect
         </h2>
-        <p className={styles.lead}>
-          <a href="https://github.com/gurjit03" rel="noopener noreferrer">
-            GitHub
-          </a>
-          {" · "}
-          <a
-            href="https://www.linkedin.com/in/gurjit03"
-            rel="noopener noreferrer"
-          >
-            LinkedIn
-          </a>
-          {" · "}
-          <a href="https://medium.com/@gurjitmehta" rel="noopener noreferrer">
-            Medium
-          </a>
-          {" · "}
-          <a href="https://twitter.com/gurjitsmehta" rel="noopener noreferrer">
-            @gurjitsmehta
-          </a>
-        </p>
-      </section>
-
-      <section className={styles.section} aria-labelledby="talks-heading">
-        <h2 id="talks-heading" className={styles.sectionTitle}>
-          Talks
-        </h2>
-        <ul className={styles.list}>
-          {talks.map((item) => (
-            <li key={item.href}>
-              <a
-                className={styles.itemTitle}
-                href={item.href}
-                rel="noopener noreferrer"
-              >
-                {item.title}
+        <p className={styles.inlineLinks}>
+          {socialLinks.map((s, i) => (
+            <span key={s.href}>
+              {i > 0 ? " · " : null}
+              <a href={s.href} rel="noopener noreferrer">
+                {s.label}
               </a>
               <span className={styles.meta}>{item.meta}</span>
               <p className={styles.itemDescription}>{item.description}</p>

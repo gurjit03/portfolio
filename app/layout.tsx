@@ -18,7 +18,10 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
-  title: "Gurjit Singh — Frontend engineer & technical writer",
+  title: {
+    default: "Gurjit Singh",
+    template: "%s — Gurjit Singh",
+  },
   description:
     "Frontend engineer at Storyblok, Berlin. Performance, React & TypeScript, Framer Motion talks, technical book reviews, and STTM open source.",
 };
