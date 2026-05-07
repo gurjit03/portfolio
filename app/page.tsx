@@ -6,6 +6,7 @@ import {
   homeTagline,
   person,
   socialLinks,
+  writing,
 } from "@/app/lib/content";
 import styles from "@/app/site.module.css";
 
@@ -14,42 +15,6 @@ export const metadata: Metadata = {
     absolute: "Gurjit Singh — Frontend engineer & technical writer",
   },
 };
-
-const writing = [
-  {
-    href: "/blog/improving-google-page-speed-code-splitting",
-    title: "Improving Google Page Speed Score Using Code Splitting",
-    meta: "Blog · also on Medium (BitSrc)",
-    description:
-      "A practical guide to using code splitting to improve Lighthouse and Core Web Vitals scores — directly relevant to the web performance space.",
-  },
-  {
-    href: "/blog/smooth-scroll-with-javascript",
-    title: "Smooth Scroll with JavaScript",
-    meta: "Blog · also on Medium",
-    description:
-      "A focused tutorial on implementing smooth scroll behaviour natively in JavaScript without libraries.",
-  },
-];
-
-const books: {
-  title: string;
-  href?: string;
-  note?: string;
-}[] = [
-  {
-    title: "Clean Code with TypeScript",
-    href: "https://www.amazon.com/dp/B0F9YCZYKT",
-  },
-  {
-    title: "Learn React with TypeScript",
-    href: "https://www.amazon.com/dp/1836643179",
-  },
-  {
-    title: "Production-grade React Applications",
-    note: "Upcoming — performance, accessibility, testing",
-  },
-];
 
 export default function Home() {
   return (
@@ -99,8 +64,6 @@ export default function Home() {
               <a href={s.href} rel="noopener noreferrer">
                 {s.label}
               </a>
-              <span className={styles.meta}>{item.meta}</span>
-              <p className={styles.itemDescription}>{item.description}</p>
             </span>
           ))}
         </p>
@@ -122,6 +85,8 @@ export default function Home() {
               >
                 {item.title}
               </a>
+              <span className={styles.meta}>{item.meta}</span>
+              <p className={styles.itemDescription}>{item.description}</p>
             </li>
           ))}
         </ul>
