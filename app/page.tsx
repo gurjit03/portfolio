@@ -71,8 +71,8 @@ export default function Home() {
           <a href={person.employer.href} rel="noopener noreferrer">
             {person.employer.name}
           </a>
-          . The detail lives on{" "}
-          <Link href="/work">Work</Link> and <Link href="/about">About</Link>.
+          . The detail lives on <Link href="/work">Work</Link> and{" "}
+          <Link href="/about">About</Link>.
         </p>
 
         <h2 className={styles.sectionTitle}>Highlights</h2>
@@ -101,9 +101,9 @@ export default function Home() {
               </a>
               <span className={styles.meta}>{item.meta}</span>
               <p className={styles.itemDescription}>{item.description}</p>
-            </li>
+            </span>
           ))}
-        </ul>
+        </p>
       </section>
 
       <section className={styles.section} aria-labelledby="writing-heading">
@@ -122,39 +122,6 @@ export default function Home() {
               >
                 {item.title}
               </a>
-              <span className={styles.meta}>{item.meta}</span>
-              <p className={styles.itemDescription}>{item.description}</p>
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      <section className={styles.section} aria-labelledby="books-heading">
-        <h2 id="books-heading" className={styles.sectionTitle}>
-          Technical book reviews
-        </h2>
-        <p className={styles.sectionIntro}>
-          I&apos;ve served as a technical reviewer on published engineering
-          books — validating frontend architecture, TypeScript patterns, and how
-          examples hold up in real products.
-        </p>
-        <ul className={styles.list}>
-          {books.map((book) => (
-            <li key={book.title}>
-              {book.href ? (
-                <a
-                  className={styles.itemTitle}
-                  href={book.href}
-                  rel="noopener noreferrer"
-                >
-                  {book.title}
-                </a>
-              ) : (
-                <span className={styles.itemTitleStatic}>{book.title}</span>
-              )}
-              <span className={styles.meta}>
-                {book.note ?? "Technical reviewer"}
-              </span>
             </li>
           ))}
         </ul>
@@ -184,7 +151,6 @@ export default function Home() {
           </li>
         </ul>
       </section>
-
     </main>
   );
 }
