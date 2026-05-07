@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { DM_Sans, Fraunces } from "next/font/google";
+import { SiteFooter } from "@/app/components/SiteFooter";
+import { SiteNav } from "@/app/components/SiteNav";
 import "./globals.css";
 
 const dmSans = DM_Sans({
@@ -16,7 +18,10 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
-  title: "Gurjit Singh — Frontend engineer & technical writer",
+  title: {
+    default: "Gurjit Singh",
+    template: "%s — Gurjit Singh",
+  },
   description:
     "Frontend engineer at Storyblok, Berlin. Performance, React & TypeScript, Framer Motion talks, technical book reviews, and STTM open source.",
 };
@@ -28,7 +33,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${dmSans.variable} ${fraunces.variable}`}>
-      <body>{children}</body>
+      <body>
+        <SiteNav />
+        <div className="siteShell">{children}</div>
+        <SiteFooter />
+      </body>
     </html>
   );
 }
