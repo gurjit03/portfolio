@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { DM_Sans, Fraunces } from "next/font/google";
 import { SiteFooter } from "@/app/components/SiteFooter";
-import { SiteNav } from "@/app/components/SiteNav";
+import { SiteHeader } from "@/app/components/SiteHeader";
 import "./globals.css";
 
 const dmSans = DM_Sans({
@@ -34,7 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${dmSans.variable} ${fraunces.variable}`}>
       <body>
-        <SiteNav />
+        <SiteHeader />
         <div className="siteShell">{children}</div>
         <SiteFooter />
       </body>

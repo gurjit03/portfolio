@@ -69,16 +69,23 @@ export const talks: Talk[] = [
 
 export const writing: Article[] = [
   {
-    href: "https://medium.com/bitsrc/improving-google-page-speed-score-using-code-splitting-239d2a027e1b",
+    href: "/blog/keeping-editor-smooth-three-way-merge-storyblok",
+    title: "Merge trees, not frames: three-way JSON merge at Storyblok",
+    meta: "Blog · Storyblok",
+    description:
+      "Heavy merge work and the main thread: tree diffs, Vue pitfalls, conflict UX, Web Workers, and shipping incrementally.",
+  },
+  {
+    href: "/blog/improving-google-page-speed-code-splitting",
     title: "Improving Google Page Speed Score Using Code Splitting",
-    meta: "Medium · BitSrc",
+    meta: "Blog · also on Medium (BitSrc)",
     description:
       "A practical guide to using code splitting to improve Lighthouse and Core Web Vitals scores — directly relevant to the web performance space.",
   },
   {
-    href: "https://medium.com/@gurjitmehta/smooth-scroll-with-javascript-571283e9a3cd",
+    href: "/blog/smooth-scroll-with-javascript",
     title: "Smooth Scroll with JavaScript",
-    meta: "Medium",
+    meta: "Blog · also on Medium",
     description:
       "A focused tutorial on implementing smooth scroll behaviour natively in JavaScript without libraries.",
   },
@@ -134,7 +141,7 @@ export const homeHighlights: HomeHighlight[] = [
   {
     title: "Writing on performance & the web platform",
     href: "/work#writing",
-    meta: `${writing.length} articles · Medium`,
+    meta: `${writing.length} articles · blog`,
   },
   {
     title: "STTM — open source at scale",
@@ -175,9 +182,3 @@ export const aboutValues: { title: string; body: string }[] = [
 
 export const contactIntro =
   "The fastest way to reach me is LinkedIn or Twitter/X for short messages, or GitHub for code and collaboration. For book- or talk-related enquiries, mention that in your note so it stands out.";
-
-export const siteColophon = {
-  creditLabel: "Layout inspiration",
-  creditHref: "https://inders.in/",
-  fontsNote: "Fraunces & DM Sans via Google Fonts.",
-} as const;

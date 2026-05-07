@@ -62,7 +62,9 @@ export default function WorkPage() {
               <a
                 className={styles.itemTitle}
                 href={item.href}
-                rel="noopener noreferrer"
+                {...(item.href.startsWith("http")
+                  ? { rel: "noopener noreferrer" as const }
+                  : {})}
               >
                 {item.title}
               </a>
