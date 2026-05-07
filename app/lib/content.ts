@@ -69,6 +69,13 @@ export const talks: Talk[] = [
 
 export const writing: Article[] = [
   {
+    href: "/blog/keeping-editor-smooth-three-way-merge-storyblok",
+    title: "Merge trees, not frames: three-way JSON merge at Storyblok",
+    meta: "Blog · Storyblok",
+    description:
+      "Heavy merge work and the main thread: tree diffs, Vue pitfalls, conflict UX, Web Workers, and shipping incrementally.",
+  },
+  {
     href: "/blog/improving-google-page-speed-code-splitting",
     title: "Improving Google Page Speed Score Using Code Splitting",
     meta: "Blog · also on Medium (BitSrc)",
