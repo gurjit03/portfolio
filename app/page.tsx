@@ -12,16 +12,16 @@ const talks = [
 
 const writing = [
   {
-    href: "https://medium.com/bitsrc/improving-google-page-speed-score-using-code-splitting-239d2a027e1b",
+    href: "/blog/improving-google-page-speed-code-splitting",
     title: "Improving Google Page Speed Score Using Code Splitting",
-    meta: "Medium · BitSrc",
+    meta: "Blog · also on Medium (BitSrc)",
     description:
       "A practical guide to using code splitting to improve Lighthouse and Core Web Vitals scores — directly relevant to the web performance space.",
   },
   {
-    href: "https://medium.com/@gurjitmehta/smooth-scroll-with-javascript-571283e9a3cd",
+    href: "/blog/smooth-scroll-with-javascript",
     title: "Smooth Scroll with JavaScript",
-    meta: "Medium",
+    meta: "Blog · also on Medium",
     description:
       "A focused tutorial on implementing smooth scroll behaviour natively in JavaScript without libraries.",
   },
@@ -143,7 +143,9 @@ export default function Home() {
               <a
                 className={styles.itemTitle}
                 href={item.href}
-                rel="noopener noreferrer"
+                {...(item.href.startsWith("http")
+                  ? { rel: "noopener noreferrer" as const }
+                  : {})}
               >
                 {item.title}
               </a>
@@ -210,27 +212,6 @@ export default function Home() {
         </ul>
       </section>
 
-      <footer className={styles.footer}>
-        <p>
-          Personal site — fonts: Fraunces &amp; DM Sans. Layout inspired by{" "}
-          <a href="https://inders.in/" rel="noopener noreferrer">
-            inders.in
-          </a>
-          .
-        </p>
-        <ul>
-          <li>
-            <a href="https://github.com/gurjit03" rel="noopener noreferrer">
-              github.com/gurjit03
-            </a>
-          </li>
-          <li>
-            <a href="https://sttm.co" rel="noopener noreferrer">
-              sttm.co
-            </a>
-          </li>
-        </ul>
-      </footer>
     </main>
   );
 }

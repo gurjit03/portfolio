@@ -6,11 +6,7 @@ export function SiteFooter() {
     <footer className={styles.footer}>
       <div className={styles.inner}>
         <p className={styles.note}>
-          Built with Next.js. Set in Fraunces &amp; DM Sans. Layout inspired by{" "}
-          <a href="https://inders.in/" rel="noopener noreferrer">
-            inders.in
-          </a>
-          .
+          Built with Next.js. Set in Fraunces &amp; DM Sans.
         </p>
         <ul className={styles.links}>
           <li>
